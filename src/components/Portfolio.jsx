@@ -44,23 +44,23 @@ export default function Portfolio() {
         </div>
 
         {/* Case Studies Display Layout Container */}
-        <div className="d-flex flex-column gap-4 max-w-6xl mx-auto">
+        <div className="d-flex flex-column gap-4 mx-auto" style={{ maxWidth: "1140px" }}>
           {caseStudies.map((study, index) => (
             <div
               key={study.title}
-              className="card p-4 md:p-5 border shadow-sm bg-white rounded hover:shadow transition-all wow fadeInUp"
+              className="card p-4 p-md-5 border shadow-sm bg-white rounded hover:shadow transition-all wow fadeInUp"
               data-wow-delay="0.2s"
             >
               <div className="row g-4 align-items-start">
                 
                 {/* Column 1: Title + Counter Number */}
                 <div className="col-12 col-md-3 d-flex align-items-start gap-3">
-                  <span className="display-6 font-weight-bold text-primary lh-1 shrink-0">
+                  <span className="display-6 fw-bold text-primary lh-1 flex-shrink-0">
                     {(index + 1).toString().padStart(2, "0")}
                   </span>
                   <div>
-                    <h5 className="font-weight-bold text-dark mb-1 leading-tight">{study.title}</h5>
-                    <span className="badge bg-secondary text-light rounded-pill px-2.5 py-1 mt-1 small text-uppercase">
+                    <h5 className="fw-bold text-dark mb-1 lh-sm">{study.title}</h5>
+                    <span className="badge bg-secondary text-light rounded-pill px-3 py-1.5 mt-1 small text-uppercase">
                       {study.subtitle}
                     </span>
                   </div>
@@ -69,12 +69,12 @@ export default function Portfolio() {
                 {/* Column 2: Key Metrics Box */}
                 <div className="col-12 col-md-3">
                   <div className="bg-light p-3 border rounded h-100">
-                    <p className="font-weight-bold text-primary tracking-wider mb-2 uppercase" style={{ fontSize: '10px' }}>
+                    <p className="fw-bold text-primary mb-2 text-uppercase" style={{ fontSize: '10px', letterSpacing: "0.08em" }}>
                       Key Results
                     </p>
-                    <ul className="list-unstyled mb-0 space-y-2">
+                    <ul className="list-unstyled mb-0 d-flex flex-column gap-2">
                       {study.results.map((result, idx) => (
-                        <li key={idx} className="text-dark small d-flex align-items-start gap-2 mb-1.5">
+                        <li key={idx} className="text-dark small d-flex align-items-start gap-2 mb-2">
                           <span className="text-secondary small">◆</span>
                           <span>{result}</span>
                         </li>
@@ -85,7 +85,7 @@ export default function Portfolio() {
 
                 {/* Column 3: Audit Highlights */}
                 <div className="col-12 col-md-4">
-                  <p className="font-weight-bold text-muted tracking-wider mb-2 uppercase" style={{ fontSize: '10px' }}>
+                  <p className="fw-bold text-muted mb-2 text-uppercase" style={{ fontSize: '10px', letterSpacing: "0.08em" }}>
                     Campaign Details
                   </p>
                   <ul className="list-unstyled mb-0">
@@ -93,7 +93,7 @@ export default function Portfolio() {
                       const Icon = item.icon;
                       return (
                         <li key={idx} className="d-flex gap-2 text-muted small mb-2 align-items-start">
-                          <Icon className="mt-1 shrink-0 text-primary" size={13} />
+                          <Icon className="mt-1 flex-shrink-0 text-primary" size={13} />
                           <span>{item.text}</span>
                         </li>
                       );
@@ -107,7 +107,7 @@ export default function Portfolio() {
                     href={study.notionUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-outline-primary btn-sm w-100 w-md-auto py-2 px-3 font-weight-bold rounded d-flex align-items-center justify-content-center gap-1"
+                    className="btn btn-outline-primary btn-sm w-100 py-2 px-3 fw-bold rounded d-flex align-items-center justify-content-center gap-1"
                   >
                     Read Report <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '10px' }}></i>
                   </a>

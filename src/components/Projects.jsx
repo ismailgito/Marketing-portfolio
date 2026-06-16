@@ -65,12 +65,12 @@ export default function Projects() {
           {projects.map((project) => (
             <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s" key={project.id}>
               {/* card implementation matching your portfolio styling wrapper */}
-              <div className="card h-full p-4 border shadow-sm d-flex flex-column justify-content-between bg-white rounded">
+              <div className="card h-100 p-4 border shadow-sm d-flex flex-column justify-content-between bg-white rounded">
                 <div>
-                  <span className="badge bg-secondary text-light rounded-pill px-3 py-1.5 mb-3 fs-7 text-uppercase">
+                  <span className="badge bg-secondary text-light rounded-pill px-3 py-1.5 mb-3 small text-uppercase">
                     {project.subtitle}
                   </span>
-                  <h4 className="h5 font-weight-bold mb-3 mt-2 text-dark">
+                  <h4 className="h5 fw-bold mb-3 mt-2 text-dark">
                     {project.title}
                   </h4>
                   <p className="text-muted small mb-4" style={{ minHeight: '80px' }}>

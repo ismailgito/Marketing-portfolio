@@ -916,17 +916,28 @@ body, html, .container-fluid.bg-white {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 55px;
-    height: 60px;
+    padding: 0 32px;
+    height: 50px;
 }
 
 .ticker-item img {
-    height: 46px;
+    height: 34px;
     width: auto;
-    max-width: 140px;
+    max-width: 110px;
     object-fit: contain;
     filter: grayscale(100%) brightness(0.7) opacity(60%);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+    .ticker-item {
+        padding: 0 55px;
+        height: 60px;
+    }
+    .ticker-item img {
+        height: 46px;
+        max-width: 140px;
+    }
 }
 
 .ticker-item:hover img {

@@ -21,12 +21,14 @@ export default function About() {
                 <h6 className="mb-0"><i className="fa fa-chart-line text-primary me-2"></i>Transparent Reporting</h6>
               </div>
             </div>
-            <div className="d-flex align-items-center mt-4">
-              <a className="btn btn-primary rounded-pill px-4 me-3" href="/contact">Book Strategy Session</a>
-              <a className="btn btn-outline-primary btn-square me-3" href="#"><i className="fab fa-facebook-f"></i></a>
-              <a className="btn btn-outline-primary btn-square me-3" href="#"><i className="fab fa-twitter"></i></a>
-              <a className="btn btn-outline-primary btn-square me-3" href="#"><i className="fab fa-instagram"></i></a>
-              <a className="btn btn-outline-primary btn-square" href="#"><i className="fab fa-linkedin-in"></i></a>
+            <div className="d-flex flex-wrap align-items-center gap-3 mt-4 justify-content-center justify-content-lg-start">
+              <a className="btn btn-primary rounded-pill px-4" href="/contact">Book Strategy Session</a>
+              <div className="d-flex gap-2">
+                <a className="btn btn-outline-primary btn-square" href="#"><i className="fab fa-facebook-f"></i></a>
+                <a className="btn btn-outline-primary btn-square" href="#"><i className="fab fa-twitter"></i></a>
+                <a className="btn btn-outline-primary btn-square" href="#"><i className="fab fa-instagram"></i></a>
+                <a className="btn btn-outline-primary btn-square" href="#"><i className="fab fa-linkedin-in"></i></a>
+              </div>
             </div>
           </div>
           <div className="col-lg-6 text-center">

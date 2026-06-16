@@ -114,16 +114,18 @@ export default function Navbar() {
               <p className="text-white pb-3 animated zoomIn">
                 I specialize in turning ad spend into profitable revenue. By combining predictive data analytics, aggressive A/B testing, and optimized paid acquisition strategies across major ad networks, I help brands acquire high-value customers at a lower CAC.
               </p>
-              <a href="#resume" onClick={(e) => handleNavClick(e, "resume")} className="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">
-                Download Resume
-              </a>
-              <a 
-                href="#contact" 
-                onClick={(e) => handleNavClick(e, "contact")} 
-                className="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight"
-              >
-                Let's Talk Growth
-              </a>
+              <div className="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-4">
+                <a href="#resume" onClick={(e) => handleNavClick(e, "resume")} className="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInLeft">
+                  Download Resume
+                </a>
+                <a 
+                  href="#contact" 
+                  onClick={(e) => handleNavClick(e, "contact")} 
+                  className="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight"
+                >
+                  Let's Talk Growth
+                </a>
+              </div>
             </div>
             <div className="col-lg-6 text-center text-lg-start">
               <img className="img-fluid" src="/img/hero.webp" alt="Performance Marketing Analytics" />
