@@ -6,7 +6,7 @@ export default function About() {
           <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
             <div className="section-title position-relative mb-4 pb-2">
               <h6 className="position-relative text-primary ps-4">About Me</h6>
-              <h2 className="mt-2">A Performance Marketer with 10 Years of Scaling Experience</h2>
+              <h2 className="mt-2">Junior Performance Marketer </h2>
             </div>
             <p className="mb-4">
               I don't just buy ad space; I purchase profitable growth. With over a decade of deep execution experience in media buying and growth marketing, I build scalable customer acquisition frameworks for fast-growing businesses. My methodology bridges the gap between creative storytelling and hard analytics.
