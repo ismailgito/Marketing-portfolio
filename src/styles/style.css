@@ -620,6 +620,22 @@ body, html, .container-fluid.bg-white {
     transform: translateY(-1px);
 }
 
+.btn-orange-cta {
+    background: linear-gradient(135deg, #ff6b00 0%, #ff5100 100%) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 15px rgba(255, 81, 0, 0.2) !important;
+    border-radius: 50px !important;
+}
+
+.btn-orange-cta:hover, .btn-orange-cta:focus {
+    background: linear-gradient(135deg, #ff5100 0%, #d83f00 100%) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255, 81, 0, 0.35) !important;
+}
+
 .btn-outline-primary {
     background-color: transparent !important;
     border-color: var(--stone) !important;
