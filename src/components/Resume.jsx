@@ -9,7 +9,7 @@ export default function Resume() {
             <p className="text-muted mb-4">
               Click below to download my comprehensive resume detailing campaigns, growth metrics, and detailed attribution workflows.
             </p>
-            <a href="/resume.pdf" download="Mohamed_Ismail_Resume.pdf" className="btn btn-primary rounded-pill py-3 px-5 shadow">
+            <a href="/resume.pdf" download="Mohamed_Ismail_Resume.pdf" className="btn btn-orange-cta rounded-pill py-3 px-5 shadow text-white">
               <i className="fa fa-download me-2"></i>Download Resume PDF
             </a>
           </div>
