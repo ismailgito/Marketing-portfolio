@@ -44,75 +44,57 @@ export default function Portfolio() {
         </div>
 
         {/* Case Studies Display Layout Container */}
-        <div className="d-flex flex-column gap-4 mx-auto" style={{ maxWidth: "1140px" }}>
+        <div className="row g-4 justify-content-center mx-auto" style={{ maxWidth: "1140px" }}>
           {caseStudies.map((study, index) => (
-            <div
-              key={study.title}
-              className="card p-4 p-md-5 border shadow-sm bg-white rounded hover:shadow transition-all wow fadeInUp"
-              data-wow-delay="0.2s"
-            >
-              <div className="row g-4 align-items-start">
-                
-                {/* Column 1: Title + Counter Number */}
-                <div className="col-12 col-md-3 d-flex align-items-start gap-3">
-                  <span className="display-6 fw-bold text-primary lh-1 flex-shrink-0">
+            <div key={study.title} className="col-12 col-lg-6 wow fadeInUp" data-wow-delay={`${0.2 * (index + 1)}s`}>
+              <div className="case-study-card">
+                <div>
+                  <div className="case-study-watermark">
                     {(index + 1).toString().padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h5 className="fw-bold text-dark mb-1 lh-sm">{study.title}</h5>
-                    <span className="badge bg-secondary text-light rounded-pill px-3 py-1.5 mt-1 small text-uppercase">
-                      {study.subtitle}
-                    </span>
                   </div>
-                </div>
-
-                {/* Column 2: Key Metrics Box */}
-                <div className="col-12 col-md-3">
-                  <div className="bg-light p-3 border rounded h-100">
-                    <p className="fw-bold text-primary mb-2 text-uppercase" style={{ fontSize: '10px', letterSpacing: "0.08em" }}>
-                      Key Results
-                    </p>
-                    <ul className="list-unstyled mb-0 d-flex flex-column gap-2">
+                  <span className="case-study-badge">
+                    {study.subtitle}
+                  </span>
+                  <h4 className="case-study-title">{study.title}</h4>
+                  
+                  <div className="mb-4">
+                    <p className="case-study-results-title">Key Insights / Metrics</p>
+                    <div className="case-study-results-grid">
                       {study.results.map((result, idx) => (
-                        <li key={idx} className="text-dark small d-flex align-items-start gap-2 mb-2">
-                          <span className="text-secondary small">◆</span>
+                        <div key={idx} className="case-study-result-pill">
+                          <span style={{ color: "var(--terracotta)", fontWeight: "bold" }}>✓</span>
                           <span>{result}</span>
-                        </li>
+                        </div>
                       ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <p className="case-study-highlights-title">Audit Highlights</p>
+                    <ul className="list-unstyled mb-0">
+                      {study.highlights.map((item, idx) => {
+                        const Icon = item.icon;
+                        return (
+                          <li key={idx} className="case-study-highlight-item">
+                            <span className="case-study-icon-wrapper">
+                              <Icon size={12} />
+                            </span>
+                            <span>{item.text}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 </div>
 
-                {/* Column 3: Audit Highlights */}
-                <div className="col-12 col-md-4">
-                  <p className="fw-bold text-muted mb-2 text-uppercase" style={{ fontSize: '10px', letterSpacing: "0.08em" }}>
-                    Campaign Details
-                  </p>
-                  <ul className="list-unstyled mb-0">
-                    {study.highlights.map((item, idx) => {
-                      const Icon = item.icon;
-                      return (
-                        <li key={idx} className="d-flex gap-2 text-muted small mb-2 align-items-start">
-                          <Icon className="mt-1 flex-shrink-0 text-primary" size={13} />
-                          <span>{item.text}</span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                {/* Column 4: External Interactive CTA Trigger */}
-                <div className="col-12 col-md-2 text-md-end d-flex align-items-start h-100 justify-content-md-end">
-                  <a
-                    href={study.notionUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-outline-primary btn-sm w-100 py-2 px-3 fw-bold rounded d-flex align-items-center justify-content-center gap-1"
-                  >
-                    Read Report <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '10px' }}></i>
-                  </a>
-                </div>
-
+                <a
+                  href={study.notionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-primary case-study-btn"
+                >
+                  Read Full Report <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '11px' }}></i>
+                </a>
               </div>
             </div>
           ))}

@@ -127,8 +127,10 @@ export default function Navbar() {
                 </a>
               </div>
             </div>
-            <div className="col-lg-6 text-center text-lg-start">
-              <img className="img-fluid" src="/img/hero.webp" alt="Performance Marketing Analytics" />
+            <div className="col-lg-6 d-flex justify-content-center align-items-center">
+              <div className="hero-circle-container animated zoomIn">
+                <img className="hero-circle-img" src="/img/hero.webp" alt="Performance Marketing Analytics" />
+              </div>
             </div>
           </div>
         </div>

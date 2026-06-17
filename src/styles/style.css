@@ -953,3 +953,204 @@ body, html, .container-fluid.bg-white {
         transform: translate3d(-50%, 0, 0);
     }
 }
+
+/* Hero Circle Styles in Navbar.jsx */
+.hero-circle-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end; /* Align the cutout image to the bottom of the circle */
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff2e6 0%, #ffd9b3 100%);
+    border: 8px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 15px 35px rgba(45, 42, 39, 0.12),
+                0 0 0 1px rgba(184, 92, 56, 0.05);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+@media (min-width: 992px) {
+    .hero-circle-container {
+        width: 420px;
+        height: 420px;
+    }
+}
+
+.hero-circle-img {
+    height: 95%;
+    width: auto;
+    object-fit: contain;
+    transform-origin: bottom center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+/* Add a subtle rotating dashed ring behind the hero circle */
+.hero-circle-container::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    border-radius: 50%;
+    border: 2px dashed rgba(184, 92, 56, 0.35);
+    animation: rotateOuterRing 40s linear infinite;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.hero-circle-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(184, 92, 56, 0.22),
+                0 0 0 1px rgba(184, 92, 56, 0.1);
+    background: linear-gradient(135deg, #ffd9b3 0%, #ffbf80 100%); /* slightly warmer/richer orange on hover */
+}
+
+.hero-circle-container:hover::before {
+    border-color: var(--terracotta);
+    transform: scale(1.04);
+    animation-duration: 20s;
+}
+
+.hero-circle-container:hover .hero-circle-img {
+    transform: scale(1.06);
+}
+
+/* Animations */
+@keyframes rotateOuterRing {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Case Studies Portfolio Section Styles */
+.case-study-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid rgba(45, 42, 39, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(45, 42, 39, 0.03);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.case-study-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(184, 92, 56, 0.08);
+    border-color: rgba(184, 92, 56, 0.2);
+}
+
+.case-study-watermark {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 7.5rem;
+    font-weight: 900;
+    color: rgba(184, 92, 56, 0.06);
+    font-family: 'DM Serif Display', serif !important;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+}
+
+.case-study-badge {
+    display: inline-block;
+    background-color: var(--terra-light);
+    color: var(--terracotta);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.case-study-title {
+    font-family: 'DM Serif Display', serif !important;
+    font-size: 1.5rem;
+    color: var(--warm-dark);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.case-study-results-title,
+.case-study-highlights-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ash);
+    margin-bottom: 0.8rem;
+}
+
+.case-study-results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1.8rem;
+}
+
+@media (min-width: 576px) {
+    .case-study-results-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.case-study-result-pill {
+    background-color: var(--cream);
+    border: 1px solid var(--sand);
+    color: var(--charcoal);
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1.2;
+}
+
+.case-study-highlight-item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: start;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+}
+
+.case-study-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--terra-light);
+    color: var(--terracotta);
+    flex-shrink: 0;
+}
+
+.case-study-btn {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
