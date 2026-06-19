@@ -1,6 +1,6 @@
 import '../styles/bootstrap.min.css';
 import '../styles/style.css'; 
-import GTM from '../components/GTM'; // Import the GTM component
+import GTMScript from '../components/GTM'; // Import the GTM component
 
 export const metadata = {
   title: 'Mohamed Ismail - Performance Marketer Portfolio',
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {/* GTM placed right at the top of the body for accurate tracking */}
-        <GTM gtmId={GTM_ID} />
+        <GTMScript gtmId={GTM_ID} />
 
         {children}
       </body>
