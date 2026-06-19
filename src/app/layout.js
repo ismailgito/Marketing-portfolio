@@ -1,6 +1,6 @@
-import '../styles/bootstrap.min.css'; 
-import '../styles/style.css';
-import GTM from '@/components/GTM'; 
+import '../styles/bootstrap.min.css';
+import '../styles/style.css'; 
+import GTM from '../components/GTM'; // Import the GTM component
 
 export const metadata = {
   title: 'Mohamed Ismail - Performance Marketer Portfolio',
@@ -8,7 +8,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // Can be configured via NEXT_PUBLIC_GTM_ID in .env
   const GTM_ID = "GTM-MRSMSBZK" 
 
   return (
