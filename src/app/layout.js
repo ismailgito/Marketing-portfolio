@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   // Can be configured via NEXT_PUBLIC_GTM_ID in .env
-  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID  
+  const GTM_ID = "GTM-MRSMSBZK" 
 
   return (
     <html lang="en">
