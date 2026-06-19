@@ -1,6 +1,7 @@
 import '../styles/bootstrap.min.css';
 import '../styles/style.css'; 
-import GTMScript from '../components/GTM'; // Import the GTM component
+import GoogleTagManager from '@/components/GoogleTagManager';
+
 
 export const metadata = {
   title: 'Mohamed Ismail - Performance Marketer Portfolio',
@@ -8,7 +9,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const GTM_ID = "GTM-MRSMSBZK" 
 
   return (
     <html lang="en">
@@ -23,10 +23,8 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
       </head>
       <body>
-        {/* GTM placed right at the top of the body for accurate tracking */}
-        <GTMScript gtmId={GTM_ID} />
-
         {children}
+        <GoogleTagManager />
       </body>
     </html>
   );
