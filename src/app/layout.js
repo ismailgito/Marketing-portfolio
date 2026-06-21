@@ -2,7 +2,6 @@ import '../styles/bootstrap.min.css';
 import '../styles/style.css'; 
 import GoogleTagManager from '@/components/GoogleTagManager';
 
-
 export const metadata = {
   title: 'Mohamed Ismail - Performance Marketer Portfolio',
   description: 'Next.js conversion of SEO Master template',
