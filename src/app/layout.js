@@ -1,6 +1,8 @@
 import '../styles/bootstrap.min.css';
 import '../styles/style.css'; 
 import GoogleTagManager from '@/components/GoogleTagManager';
+import UTMPreserver from '@/components/UTMPreserver';
+
 
 export const metadata = {
   title: 'Mohamed Ismail - Performance Marketer Portfolio',
@@ -24,6 +26,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <GoogleTagManager />
+        <UTMPreserver />
       </body>
     </html>
   );
