@@ -12,7 +12,7 @@ export default function Projects() {
       title: "Landing Page A/B Testing & Tracking",
       subtitle: "Conversion Rate Optimization (CRO)",
       description: "Designed, hosted, and A/B tested an acquisition landing page. Set up granular click event tracking via GTM, verified tag firing, and boosted the conversion rate by 32% over 3 iterative data sprints.",
-      liveUrl: "https://landing-page-krwi9m05v-gearup4.vercel.app/?utm_source=google&utm_medium=ctr",
+      liveUrl: "https://marketingportfolio7.netlify.app/?utm_source=portfolio&utm_medium=clicks&utm_campaign=portfolio",
       githubUrl: "https://github.com/ismailgito/Landing_page.git",
       downloadOptions: [
         { type: "pdf", label: "Attribution Plan PDF", icon: FaFilePdf, file: "/projects/Landing_page_optimization/Landing_page_UTM_tracking.pdf" },

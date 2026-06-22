@@ -24,7 +24,7 @@ export default function About() {
             <div className="d-flex flex-wrap align-items-center gap-3 mt-4 justify-content-center justify-content-lg-start">
               <a className="btn btn-primary rounded-pill px-4" href="/contact">Book Strategy Session</a>
               <div className="d-flex gap-2">
-                <a className="btn btn-outline-primary btn-square" href="#"><i className="fab fa-linkedin-in"></i></a>
+                <a className="btn btn-outline-primary btn-square" href="https://www.linkedin.com/in/mohamed-ismail-2700a2257/"><i className="fab fa-linkedin-in"></i></a>
               </div>
             </div>
           </div>

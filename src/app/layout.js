@@ -1,8 +1,17 @@
 import '../styles/bootstrap.min.css';
 import '../styles/style.css'; 
-import GoogleTagManager from '@/components/GoogleTagManager';
-import UTMPreserver from '@/components/UTMPreserver';
+import dynamic from 'next/dynamic'; // <--- ADD THIS
 
+// Dynamically import client-only components (disable server-side rendering)
+const GoogleTagManager = dynamic(
+  () => import('@/components/GoogleTagManager'),
+  { ssr: false }
+);
+
+const UTMPreserver = dynamic(
+  () => import('@/components/UTMPreserver'),
+  { ssr: false }
+);
 
 export const metadata = {
   title: 'Mohamed Ismail - Performance Marketer Portfolio',
@@ -10,7 +19,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
       <head>
