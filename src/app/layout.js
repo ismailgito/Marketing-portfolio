@@ -1,17 +1,7 @@
+// src/app/layout.js
 import '../styles/bootstrap.min.css';
 import '../styles/style.css'; 
-import dynamic from 'next/dynamic'; // <--- ADD THIS
-
-// Dynamically import client-only components (disable server-side rendering)
-const GoogleTagManager = dynamic(
-  () => import('@/components/GoogleTagManager'),
-  { ssr: false }
-);
-
-const UTMPreserver = dynamic(
-  () => import('@/components/UTMPreserver'),
-  { ssr: false }
-);
+import AnalyticsClient from '@/components/AnalyticsClient'; // <--- Import the new wrapper
 
 export const metadata = {
   title: 'Mohamed Ismail - Performance Marketer Portfolio',
@@ -33,8 +23,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
-        <GoogleTagManager />
-        <UTMPreserver />
+        <AnalyticsClient /> {/* <--- Render it here */}
       </body>
     </html>
   );
