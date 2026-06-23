@@ -27,6 +27,18 @@ const caseStudies = [
       { icon: FaVideo, text: "Data-driven budget allocation shifts across high-performing ad sets." },
     ],
   },
+  {
+    title: "Creative Intelligence & Competitor Analysis",
+    subtitle: "D2C Multi-Channel Creative Strategy",
+    notionUrl: "https://docs.google.com/document/d/1QTPWVaEacME0O_8GNg3j0omgGdTYV4AV3ZIlectHM1o/edit?usp=sharing",
+    results: ["Cross-channel creative playbook", "High-converting hook frameworks", "Influencer R&D testing model", "Frictionless WhatsApp CTA funnel"],
+    highlights: [
+      { icon: FaChartBar, text: "Mapped multi-channel funnel strategy across Meta, Google, and TikTok/Reels to align creative style with user intent." },
+      { icon: FaRocket, text: "Engineered high-performing hook frameworks (Shock, Attitude, One-Liner) utilizing unpolished, phone-shot UGC to drive authentic engagement." },
+      { icon: FaBullhorn, text: "Developed a dual-track audience mapping model, pairing humor-led content for Gen Z/Millennials with education-first messaging for high-intent searchers." },
+      { icon: FaVideo, text: "Implemented a cost-efficient 'Ads as R&D' testing framework to validate paid creative cuts before scaling them via organic channels." },
+    ],
+  },
 ];
 
 export default function Portfolio() {
