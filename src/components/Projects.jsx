@@ -24,7 +24,7 @@ export default function Projects() {
       title: "Attribution Tracker & Budget Shifter",
       subtitle: "Analytical Pipeline / Automation",
       description: "Built a multi-channel attribution model comparing linear, position-based, and time-decay structures using Google Sheets & Google Apps Script. Features automatic weekly budget shifts recommendations.",
-      liveUrl: "https://multi-channel-attribution-tracker.netlify.app/",
+      liveUrl: "https://multi-channel-attribution-tracker.vercel.app/",
       githubUrl: "https://github.com/ismailgito/multi-channel-attribution-tracker.git",
       downloadOptions: [
         { type: "pdf", label: "Model Methodology PDF", icon: FaFilePdf, file: "/projects/multi-channel-attribution-tracker/Multi-channel-tracker.pdf" },
