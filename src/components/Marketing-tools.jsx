@@ -8,6 +8,10 @@ const toolsList = [
   { name: "Google Analytics 4", src: "/img/ga4.png" },
   { name: "Google Tag Manager", src: "/img/gtm.png" },
   { name: "CRO & Optimization", src: "/img/cro.png" },
+  { name: "Wordpress", src: "/img/Wordpress.png" },
+  { name: "reddit", src: "/img/reddit.png" },
+  { name: "Hubspot", src: "/img/hubspot.png" },
+  { name: "LinkedIn Ads", src: "/img/linkedin.png" },
 ];
 
 export default function MarketingTools() {

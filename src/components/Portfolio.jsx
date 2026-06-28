@@ -1,6 +1,7 @@
 "use client";
 
-import { FaChartBar, FaVideo, FaBullhorn, FaRocket } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { FaChartBar, FaVideo, FaBullhorn, FaRocket, FaCode, FaCookie, FaFilter, FaUsers } from "react-icons/fa";
 
 const caseStudies = [
   {
@@ -39,9 +40,86 @@ const caseStudies = [
       { icon: FaVideo, text: "Implemented a cost-efficient 'Ads as R&D' testing framework to validate paid creative cuts before scaling them via organic channels." },
     ],
   },
+  {
+    title: "GTM Cookie Setup: Filter Internal Traffic from GA4",
+    subtitle: "IP-Independent Step-by-Step Guide for Clean Analytics",
+    notionUrl: "https://drive.google.com/file/d/1y9a5rxMwLUAeLpf6Liaa0gOhJq8SnFYR/view?usp=sharing", 
+    results: [
+      "Pristine GA4 data free from internal team traffic",
+      "365-day persistent cookie – set once per year",
+      "Zero risk of filtering real customers",
+      "Works for remote teams with dynamic IPs"
+    ],
+    highlights: [
+      { icon: FaCode, text: "Step-by-step GTM variable and tag setup to read URL parameter and write a persistent 365-day cookie." },
+      { icon: FaCookie, text: "Cookie variable integration into GA4 configuration using reserved traffic_type parameter for internal tagging." },
+      { icon: FaFilter, text: "GA4 data filter activation with Testing mode for 24–48 hours before permanent Active state." },
+      { icon: FaUsers, text: "Simple team onboarding – share one special URL, bookmark it, use incognito for first visit." },
+    ],
+  }
 ];
 
 export default function Portfolio() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerSlide, setItemsPerSlide] = useState(1);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // min swipe distance in px
+  const minSwipeDistance = 50;
+
+  useEffect(() => {
+    const updateItemsPerSlide = () => {
+      if (window.innerWidth >= 992) {
+        setItemsPerSlide(2);
+      } else {
+        setItemsPerSlide(1);
+      }
+    };
+
+    updateItemsPerSlide();
+    window.addEventListener("resize", updateItemsPerSlide);
+    return () => window.removeEventListener("resize", updateItemsPerSlide);
+  }, []);
+
+  const maxIndex = caseStudies.length - itemsPerSlide;
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  // Keep index in bounds on window resize when visible items change
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(Math.max(0, maxIndex));
+    }
+  }, [itemsPerSlide, maxIndex, currentIndex]);
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   return (
     <div className="container-fluid py-5">
       <div className="container px-lg-5">
@@ -55,61 +133,112 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* Case Studies Display Layout Container */}
-        <div className="row g-4 justify-content-center mx-auto" style={{ maxWidth: "1140px" }}>
-          {caseStudies.map((study, index) => (
-            <div key={study.title} className="col-12 col-lg-6 wow fadeInUp" data-wow-delay={`${0.2 * (index + 1)}s`}>
-              <div className="case-study-card">
-                <div>
-                  <div className="case-study-watermark">
-                    {(index + 1).toString().padStart(2, "0")}
-                  </div>
-                  <span className="case-study-badge">
-                    {study.subtitle}
-                  </span>
-                  <h4 className="case-study-title">{study.title}</h4>
-                  
-                  <div className="mb-4">
-                    <p className="case-study-results-title">Key Insights / Metrics</p>
-                    <div className="case-study-results-grid">
-                      {study.results.map((result, idx) => (
-                        <div key={idx} className="case-study-result-pill">
-                          <span style={{ color: "var(--terracotta)", fontWeight: "bold" }}>✓</span>
-                          <span>{result}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+        {/* Case Studies Slider Layout Container */}
+        <div className="portfolio-slider-wrapper position-relative mx-auto" style={{ maxWidth: "1140px" }}>
+          
+          {/* Left Arrow */}
+          <button
+            onClick={prevSlide}
+            className="slider-arrow slider-arrow-left"
+            aria-label="Previous slide"
+            disabled={currentIndex === 0}
+          >
+            <i className="bi bi-chevron-left"></i>
+          </button>
 
-                  <div className="mb-4">
-                    <p className="case-study-highlights-title">Audit Highlights</p>
-                    <ul className="list-unstyled mb-0">
-                      {study.highlights.map((item, idx) => {
-                        const Icon = item.icon;
-                        return (
-                          <li key={idx} className="case-study-highlight-item">
-                            <span className="case-study-icon-wrapper">
-                              <Icon size={12} />
-                            </span>
-                            <span>{item.text}</span>
-                          </li>
-                        );
-                      })}
-                    </ul>
+          {/* Slider Viewport */}
+          <div 
+            className="portfolio-slider-container"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            <div 
+              className="portfolio-slider-track"
+              style={{
+                transform: `translate3d(-${currentIndex * (100 / itemsPerSlide)}%, 0, 0)`
+              }}
+            >
+              {caseStudies.map((study, index) => (
+                <div 
+                  key={study.title} 
+                  className="portfolio-slider-item"
+                >
+                  <div className="case-study-card">
+                    <div>
+                      <div className="case-study-watermark">
+                        {(index + 1).toString().padStart(2, "0")}
+                      </div>
+                      <span className="case-study-badge">
+                        {study.subtitle}
+                      </span>
+                      <h4 className="case-study-title">{study.title}</h4>
+                      
+                      <div className="mb-4">
+                        <p className="case-study-results-title">Key Insights / Metrics</p>
+                        <div className="case-study-results-grid">
+                          {study.results.map((result, idx) => (
+                            <div key={idx} className="case-study-result-pill">
+                              <span style={{ color: "var(--terracotta)", fontWeight: "bold" }}>✓</span>
+                              <span>{result}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <p className="case-study-highlights-title">Audit Highlights</p>
+                        <ul className="list-unstyled mb-0">
+                          {study.highlights.map((item, idx) => {
+                            const Icon = item.icon;
+                            return (
+                              <li key={idx} className="case-study-highlight-item">
+                                <span className="case-study-icon-wrapper">
+                                  <Icon size={12} />
+                                </span>
+                                <span>{item.text}</span>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <a
+                      href={study.notionUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline-primary case-study-btn"
+                    >
+                      Read Full Report <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '11px' }}></i>
+                    </a>
                   </div>
                 </div>
-
-                <a
-                  href={study.notionUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline-primary case-study-btn"
-                >
-                  Read Full Report <i className="bi bi-box-arrow-up-right ms-1" style={{ fontSize: '11px' }}></i>
-                </a>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={nextSlide}
+            className="slider-arrow slider-arrow-right"
+            aria-label="Next slide"
+            disabled={currentIndex >= maxIndex}
+          >
+            <i className="bi bi-chevron-right"></i>
+          </button>
+
+          {/* Slider Dots */}
+          <div className="slider-dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`slider-dot ${currentIndex === idx ? "active" : ""}`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
       </div>

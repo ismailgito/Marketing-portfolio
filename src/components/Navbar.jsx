@@ -144,7 +144,7 @@ export default function Navbar() {
             </div>
             <div className="col-lg-6 d-flex justify-content-center align-items-center">
               <div className="hero-circle-container animated zoomIn">
-                <img className="hero-circle-img" src="/img/hero.webp" alt="Performance Marketing Analytics" />
+                <img className="hero-circle-img" src="/img/Hero.webp" alt="Performance Marketing Analytics" />
               </div>
             </div>
           </div>
